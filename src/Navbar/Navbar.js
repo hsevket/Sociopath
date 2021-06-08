@@ -6,7 +6,6 @@ import {
   faEnvelope,
   faBell,
   faUserFriends,
-  faHandshakeSlash,
   faSearch,
 } from "@fortawesome/free-solid-svg-icons";
 import Search from "./Search";
@@ -51,7 +50,6 @@ const Nav = styled.nav`
 const Navbar = () => (
   <Nav>
     <div>
-      <FontAwesomeIcon icon={faHandshakeSlash} size="2x" />
       <h1>sociopath</h1>
       <Search />
       <i>

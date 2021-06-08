@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
-
+import Loader from "../Loader/Loader";
 
 const ProfileCard = styled.div`
   height: 280px;
@@ -9,24 +9,21 @@ const ProfileCard = styled.div`
   border-radius: 5px;
   margin: 20px;
   background-color: rgb(126, 137, 26);
-    div:first-child{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        margin: 22px;
-        padding:14px;
-        background-color: #eaece5;
-        height:100%
-        img{
-            border: 1px solid Black;
-            border-radius: 50%;
-            width: 110px;
-            height: 120px;
-
-        }
-
+  div:first-child {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 22px;
+    padding: 14px;
+    background-color: #eaece5;
+    height: 100% img {
+      border: 1px solid Black;
+      border-radius: 50%;
+      width: 110px;
+      height: 120px;
     }
+  }
 `;
 
 function Profile() {
@@ -41,8 +38,8 @@ function Profile() {
   }, []);
 
   return (
-    user && (
-      <ProfileCard>
+    <ProfileCard>
+      {user ? (
         <div>
           <div>
             <img src={user.picture} alt="user" />
@@ -52,14 +49,17 @@ function Profile() {
               Full Name : {user.firstName} {user.lastName}
             </h1>
             <p> Phone Number: {user.phone}</p>
-            <p>Adress: {user.location.street} {user.location.city} {user.location.state}/{user.location.country}</p>
+            <p>
+              Adress: {user.location.street} {user.location.city}{" "}
+              {user.location.state}/{user.location.country}
+            </p>
             <p> Email: {user.email}</p>
-
           </div>
-
         </div>
-      </ProfileCard>
-    )
+      ) : (
+        <Loader />
+      )}
+    </ProfileCard>
   );
 }
 

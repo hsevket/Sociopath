@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import styled from "styled-components";
-import UserPanel from "./UserPanel"
+import UserPanel from "../UserPanel/UserPanel"
 
 const Grid = styled.section`
   display: grid;

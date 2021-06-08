@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
+import Loader from "../Loader/Loader";
 
 
 const Userpanel = styled.div`
@@ -74,12 +75,13 @@ function UserPanel() {
   }, []);
 
   return (
-    user && (
       <Userpanel>
+      {user ? 
+        <>
+      <div>
         <div>
-          <div>
             <img src={user.picture} alt="user" width="40px" height="40px" />
-          </div>
+        </div>
           <div>
             <h1>
               {user.firstName} {user.lastName}
@@ -97,10 +99,11 @@ function UserPanel() {
             <li>Settings</li>
           </ul>
          
-        </div>
+        </div> </> : <Loader/>}
+        
       </Userpanel>
     )
-  );
+  
 }
 
 export default UserPanel;
